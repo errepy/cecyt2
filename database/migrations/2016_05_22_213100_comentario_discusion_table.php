@@ -12,16 +12,24 @@ class ComentarioDiscusionTable extends Migration
      */
     public function up()
     {
+           
+            
            Schema::create('comentario_discusion', function (Blueprint $table) {
-            $table->increments('com_dis_id');
-            $table->integer('dis_id')->unsigned();
-            $table->foreign('dis_id')->references('dis_id')->on('discusion');
-            $table->integer('usu_id')->unsigned();
-            $table->foreign('usu_id')->references('user_id')->on('users');
-            $table->text('body');
+            
+               /*campos generales*/
             $table->softDeletes();
-
             $table->timestamps();
+            $table->increments('id'); 
+            
+            /*campos propios de la clase*/
+            $table->integer('dis_id')->unsigned();
+            $table->foreign('dis_id')->references('id')->on('discusion');
+            $table->integer('usu_id')->unsigned();
+            $table->foreign('usu_id')->references('id')->on('users');
+            
+            $table->text('contenido');
+            $table->boolean('activo');
+            
         });
 
 
