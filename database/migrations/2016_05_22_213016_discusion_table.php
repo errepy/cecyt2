@@ -13,7 +13,10 @@ class DiscusionTable extends Migration
     public function up()
     {
         Schema::create('discusion', function (Blueprint $table) {
-                 $table->increments('dis_id');
+            $table->increments('id');
+            $table->softDeletes();  
+            $table->timestamps();
+
             $table->integer('usu_id')->unsigned();
             $table->foreign('usu_id')->references('usu_id')->on('users');
             $table->string('titulo')->unique();
@@ -21,9 +24,6 @@ class DiscusionTable extends Migration
             $table->string('slug')->unique();
             $table->boolean('active');
 
-            $table->softDeletes();
-
-            $table->timestamps();
         });
     }
 

@@ -13,18 +13,20 @@ class ComentarioNoticiaTable extends Migration
     public function up()
     {
         Schema::create('comentario_noticia', function (Blueprint $table) {
-            $table->increments('not_com_id');
+           
+            /*Campos Generales*/
+            $table->increments('id');
             $table->softDeletes();
             $table->timestamps();
 
 
             /*Valores propios de la clase*/
             $table->integer('not_id')->unsigned();
-            $table->foreign('not_id')->references('not_id')->on('noticia');
-            $table ->integer('id')->unsigned();
-            $table->foreign('id')->references('id')->on('users');
-            $table->text('not_com_contenido');
-            $table->boolean('not_com_activo');
+            $table->foreign('not_id')->references('id')->on('noticia');
+            $table ->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->text('contenido');
+            $table->boolean('activo');
 
         });
 

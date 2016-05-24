@@ -19,12 +19,12 @@ class NoticiaTable extends Migration
             $table->timestamps();
 
             /*Campos propios de la clase*/
-            $table->integer('id')->unsigned();
-            $table->foreign('id')->references('id')->on('users');
-            $table->string('not_titulo')->unique();
-            $table->text('not_contenido');
-            $table->dateTime('not_fecha_ultimo_posteo');
-            $table->boolean('not_activa');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('titulo');
+            $table->text('contenido');
+            $table->dateTime('fecha_ultimo_posteo');
+            $table->boolean('activa');
   
         });
     }
