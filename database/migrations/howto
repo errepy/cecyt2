@@ -1,0 +1,9 @@
+howto
+
+
+Para crear una nueva instancia de base de datos se usa: php artisan make:migration nombre_archivo_table --create=nombre_que_aparece_en_la_bd
+
+Para "compilar" la base de datos creada: php artisan migrate (si salen errores hay que ver que se creo en la bd, normalmente saltan errores de dependencia sobre todo con los foreing keys)
+
+Para "compilar" todo de nuevo si hiciste cambios en una bd previamente compilada con el migrate: php artisan migrate:refresh
+
